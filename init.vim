@@ -15,7 +15,6 @@ call plug#end()
 colorscheme gruvbox
 
 let mapleader = ','
-map <silent> <C-b> :NerdTreeToggle<CR>
 
 filetype plugin indent on
 syntax on
@@ -37,14 +36,15 @@ set smartindent
 set mouse=a
 set splitbelow
 set splitright
-
+set title
 set list listchars=tab:\ \ ,trail:·
 set hidden                                              " this makes buffers can exit in the background
-
+set cmdheight=2
 set noswapfile
 set nobackup
 set nowb
-
+set scrolloff=10
+set ruler
 " ================ Search ===========================
 
 set incsearch       " Find the next match as we type the search
@@ -60,14 +60,11 @@ set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*nvim/backups*
 set wildignore+=*sass-cache*
 set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
 set wildignore+=vendor/cache/**
 set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
-
-
 
 " ================ Persistent Undo ==================       
 " Keep undo history across sessions, by storing in file.                                
@@ -78,13 +75,17 @@ if has('persistent_undo') && isdirectory(expand('~').'~/.config/nvim/backups')
         set undofile
 endif
 
+inoremap jk <ESC>
 inoremap <C-K> <ESC>O<ESC>jA
 
 noremap Y y$
 
 nmap <leader>ev :tabedit ~/.config/nvim/init.vim<CR>
-nmap <C-r> :CtrlPBufTag<CR>
-nmap <C-e> :CtrlPMRUFiles<CR>
+
+nnoremap <C-t> :NERDTreeToggle<CR>
+nmap <leader>r :CtrlPBufTag<CR>
+nmap <leader>e :CtrlPMRUFiles<CR>
+nmap <leader><space> :nohlsearch<CR>
 
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
 
