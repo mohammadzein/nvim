@@ -10,7 +10,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/terryma/vim-multiple-cursors'  " ctrl + n
 Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
+
 
 colorscheme gruvbox
 
