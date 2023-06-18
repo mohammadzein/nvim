@@ -4,7 +4,7 @@ filetype off
 call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
-Plug 'preservim/nerdtree'                               " ctrl + b
+Plug 'preservim/nerdtree'                               " ctrl + t
 Plug 'ctrlpvim/ctrlp.vim'                               " ctrl + p
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/vim-airline/vim-airline'
@@ -14,8 +14,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
-
 colorscheme gruvbox
+
 
 let mapleader = ','
 
@@ -79,15 +79,26 @@ if has('persistent_undo') && isdirectory(expand('~').'~/.config/nvim/backups')
 endif
 
 inoremap jk <ESC>
+
+" ctrl+k to insert line
 inoremap <C-K> <ESC>O<ESC>jA
 
+" Y to copy file to end of line
 noremap Y y$
 
+" ,ev to edit nvim init.vim file
 nmap <leader>ev :tabedit ~/.config/nvim/init.vim<CR>
 
+" ctrl+t to toggle nerd tree toggle file explorer
 nnoremap <C-t> :NERDTreeToggle<CR>
+
+" ,r to 
 nmap <leader>r :CtrlPBufTag<CR>
+
+" ,e
 nmap <leader>e :CtrlPMRUFiles<CR>
+
+" ,space to remove highlighted world
 nmap <leader><space> :nohlsearch<CR>
 
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
